@@ -1,6 +1,6 @@
 # Testing Jquery lib DataTables
 
-Info: Simple output data from SQL base for index page table by Json
+Info: Output data from SQL base for index page table by Json, data updating and deleting
 
 ###Install:
 Clone this repository and for correct installing project use the command<br>
