@@ -15,11 +15,17 @@ $primaryKey = 'id';
 // parameter represents the DataTables column identifier. In this case object
 // parameter names
 $columns = array(
-    array( 'db' => 'first_name', 'dt' => '0' ),
-    array( 'db' => 'last_name',  'dt' => '1' ),
-    array( 'db' => 'birthplace',   'dt' => '2' ),
-    array( 'db' => 'profession',     'dt' => '3' ),
-    array( 'db' => 'phonenumber',     'dt' => '4' )
+    array( 'db' => 'id',            'dt' => '0' ),
+    array( 'db' => 'first_name',    'dt' => '1' ),
+    array( 'db' => 'last_name',     'dt' => '2' ),
+    array( 'db' => 'birthplace',    'dt' => '3' ),
+    array( 'db' => 'profession',    'dt' => '4' ),
+    array( 'db' => 'phonenumber',   'dt' => '5' ),
+    array( 'db' => 'datetime',      'dt' => '6', 'formatter' => function( $d, $row ) {
+            return date( 'd.m.Y H:i:s', strtotime($d));                 //returning date in need format
+        }
+    ),
+    array( 'db' => 'actions',       'dt' => '7' )
 );
 
 // SQL server connection information
