@@ -170,10 +170,13 @@ class SSP {
 				$requestColumn = $request['columns'][$i];
 				$columnIdx = array_search( $requestColumn['data'], $dtColumns );
 				$column = $columns[ $columnIdx ];
-
 				if ( $requestColumn['searchable'] == 'true' ) {
 					$binding = self::bind( $bindings, '%'.$str.'%', PDO::PARAM_STR );
-					$globalSearch[] = "`".$column['db']."` LIKE ".$binding;
+					if ($column['db'] == 'datetime') {
+						$globalSearch[] = "DATE_FORMAT(`".$column['db']."`, '%d.%m.%Y %H:%i:%s') LIKE ".$binding;
+					} else {
+						$globalSearch[] = "`".$column['db']."` LIKE ".$binding;
+					}
 				}
 			}
 		}
